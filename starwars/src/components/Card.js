@@ -4,22 +4,17 @@ import './StarWars.css';
 
 // Card Style
 
-const ParentCon = styled.div`
-    margin: 0 auto;
-    max-width: 900px;
-`;
-
 const CardCon = styled.div`
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 0.6rem;
     border-radius: 2em;
-    background: rgba(237, 133, 14, 0.4);
-    padding: 1.5em;
-    color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1em;
+    margin: 2.5em;
 `;
 
 const Section = styled.section`
@@ -41,7 +36,7 @@ const StyledH4 = styled.h4`
 function Card({ name, gender, birthYear, height, mass, created }) {
     
     return (
-        <ParentCon>
+        <div>
             {
                 <CardCon>
                     <StyledH1>{name}</StyledH1>
@@ -56,7 +51,7 @@ function Card({ name, gender, birthYear, height, mass, created }) {
                     <StyledH4><span>Created</span><br />{created}</StyledH4>
                 </CardCon>
             }
-        </ParentCon>
+        </div>
     )
 
 }
