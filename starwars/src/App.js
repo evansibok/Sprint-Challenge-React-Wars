@@ -1,7 +1,13 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
 
-const App = () => {
+
+const characters = "https://swapi.co/api/people/";
+
+
+
+const StarWarsCast = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -16,4 +22,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default StarWarsCast;
