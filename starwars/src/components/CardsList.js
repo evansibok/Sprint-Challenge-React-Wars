@@ -11,6 +11,7 @@ const ParentCon = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    border-radius: 2em;
 
 `;
 
