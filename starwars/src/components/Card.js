@@ -3,13 +3,23 @@ import styled from 'styled-components';
 import './StarWars.css';
 
 // Card Style
+
+const ParentCon = styled.div`
+    margin: 0 auto;
+    max-width: 900px;
+`;
+
 const CardCon = styled.div`
-    border: 2px solid #466;
     max-width: 200px;
     height: auto;
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
+    justify-content: space-around;
+    font-size: 0.6rem;
+    border-radius: 2em;
+    background: rgba(237, 133, 14, 0.4);
+    padding: 1.5em;
+    color: rgb(255, 255, 255);
 `;
 
 const Section = styled.section`
@@ -17,24 +27,49 @@ const Section = styled.section`
     justify-content: space-around;
 `;
 
-function Card({ name, gender, birthYear, height, mass, created }) {
+const StyledH1 = styled.h1`
+    font-size: 1rem;
+`;
+
+const StyledH4 = styled.h4`
+
+    span {
+        font-weight: 300;
+    }
+`;
+
+const StyledH5 = styled(StyledH4)`
+    
+    span {
+
+    }
+`;
+
+
+function Card({ name, gender, birthYear, height, mass, created, character }) {
     
     return (
-        <div>
-            <CardCon>
-                <h1>{name}</h1>
-                <Section>
-                    <h4>Gender: {gender}</h4>
-                    <h4>Birth Year: {birthYear}</h4>
-                </Section>
-                <Section>
-                    <h4>Height: {height}</h4>
-                    <h4>Mass: {mass}</h4>
-                </Section>
-                <h5>Created: {created}</h5>
-            </CardCon>
-        </div>
+        <ParentCon>
+            {
+                Card.map(ele => (
+                    <CardCon>
+                        <StyledH1>{name}</StyledH1>
+                        <Section>
+                            <StyledH4><span>Gender</span><br /><br /> {gender}</StyledH4>
+                            <StyledH4><span>Birth Year</span><br /><br /> {birthYear}</StyledH4>
+                        </Section>
+                        <Section>
+                            <StyledH4><span>Height</span><br /><br /> {height}</StyledH4>
+                            <StyledH4><span>Mass</span><br /><br /> {mass}</StyledH4>
+                        </Section>
+                        <StyledH5><span>Created</span><br /> {created}</StyledH5>
+                    </CardCon>
+                ))
+            }
+            
+        </ParentCon>
     )
+
 }
 
 

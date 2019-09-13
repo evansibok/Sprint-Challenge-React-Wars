@@ -4,7 +4,7 @@ import Card from './components/Card';
 import './App.css';
 
 
-const castApi = "https://swapi.co/api/people/";
+const castApi = "https://lambda-github-api-server.herokuapp.com";
 
 axios.get(castApi)
   .then()
@@ -21,32 +21,40 @@ const StarWarsCast = () => {
   useEffect(() => {
     axios.get(castApi)
       .then(response => {
-        debugger
+        // debugger
         const peopleList = response.data.results;
         peopleList.map(ele => {
-          debugger
+          // debugger
           return setCharacter(ele)
         })
       })
       .catch(error => {
-        debugger
+        // debugger
         return error
       })
   }, []);
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
-      <Card 
-      name={character.name}
-      gender={character.gender}
-      birthYear={character.birth_year}
-      height={character.height}
-      mass={character.mass}
-      created={character.created}
-      />
+        <h1 className="Header">React Wars</h1>
+
+        {/* {
+           */
+        <Card
+          character={character}
+          name={character.name}
+          gender={character.gender}
+          birthYear={character.birth_year}
+          height={character.height}
+          mass={character.mass}
+          created={character.created}
+        />
+        
+        }
+            
+          
     </div>
-  );
+  )
 }
 
 export default StarWarsCast;
