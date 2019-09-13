@@ -22,24 +22,14 @@ const StarWarsCast = () => {
     axios.get(castApi)
       .then(response => {
         // debugger
-        const peopleList = response.data.results;
-        peopleList.map(ele => {
-          // debugger
-          return setCharacter(ele)
-        })
+        setCharacter(response.data.results);
       })
-      .catch(error => {
-        // debugger
-        return error
-      })
+      .catch(error => error)
   }, []);
 
   return (
     <div className="App">
         <h1 className="Header">React Wars</h1>
-
-        {/* {
-           */
         <Card
           character={character}
           name={character.name}
@@ -48,11 +38,7 @@ const StarWarsCast = () => {
           height={character.height}
           mass={character.mass}
           created={character.created}
-        />
-        
-        }
-            
-          
+        /> 
     </div>
   )
 }

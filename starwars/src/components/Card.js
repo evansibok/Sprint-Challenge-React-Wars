@@ -46,13 +46,13 @@ const StyledH5 = styled(StyledH4)`
 `;
 
 
-function Card({ name, gender, birthYear, height, mass, created, character }) {
+function Card({ name, gender, birthYear, height, mass, created, character, }) {
     
     return (
         <ParentCon>
             {
-                Card.map(ele => (
-                    <CardCon>
+                character.map((ele, index) => (
+                    <CardCon key={index}>
                         <StyledH1>{name}</StyledH1>
                         <Section>
                             <StyledH4><span>Gender</span><br /><br /> {gender}</StyledH4>
