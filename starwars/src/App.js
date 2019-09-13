@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Card from './components/Card';
+import CardsList from './components/CardsList'
 import './App.css';
 
 
-const castApi = "https://lambda-github-api-server.herokuapp.com";
-
-axios.get(castApi)
-  .then()
-  .catch()
+const castApi = "https://swapi.co/api/people/";
 
 const StarWarsCast = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -20,25 +16,19 @@ const StarWarsCast = () => {
   // sync up with, if any.
   useEffect(() => {
     axios.get(castApi)
-      .then(response => {
+      .then(response => setCharacter(response.data.results))
+      .catch(error => {
         // debugger
-        setCharacter(response.data.results);
+        return error;
       })
-      .catch(error => error)
   }, []);
+
+
 
   return (
     <div className="App">
         <h1 className="Header">React Wars</h1>
-        <Card
-          character={character}
-          name={character.name}
-          gender={character.gender}
-          birthYear={character.birth_year}
-          height={character.height}
-          mass={character.mass}
-          created={character.created}
-        /> 
+        <CardsList character={character} />
     </div>
   )
 }
