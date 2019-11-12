@@ -11,6 +11,8 @@ beforeEach(() => {
   wrapper = rtl.render(<App />)
 })
 
-it("renders without crashing", () => {
-  expect(wrapper.queryByText(/react wars/i)).toBeInTheDocument();
+describe('App Component', () => {
+  it("contains 'react wars' text", () => {
+    expect(wrapper.queryByText(/react wars/i)).toBeInTheDocument();
+  })
 })
